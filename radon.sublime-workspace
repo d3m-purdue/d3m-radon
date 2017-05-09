@@ -1,0 +1,999 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"te",
+				"test.Rmd"
+			],
+			[
+				"roxy",
+				"roxygen"
+			],
+			[
+				"tmp",
+				"tmp_data.csv"
+			],
+			[
+				"majority",
+				"majorityTab"
+			],
+			[
+				"majorityT",
+				"majorityTabByBloc"
+			],
+			[
+				"res",
+				"resolutionID"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "# devtools::install_github(\"hafen/trelliscopejs\")\nlibrary(trelliscopejs)\nlibrary(tidyverse)\n\n\n\n",
+			"file": "explore.R",
+			"file_size": 51,
+			"file_write_time": 131388181380000000,
+			"settings":
+			{
+				"buffer_size": 95,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 239.0,
+		"last_filter": "upload",
+		"selected_items":
+		[
+			[
+				"upload",
+				"SFTP: Upload File"
+			],
+			[
+				"sftp",
+				"SFTP: Download Folder"
+			],
+			[
+				"r ext",
+				"Set Syntax: R Extended"
+			],
+			[
+				"up",
+				"SFTP: Upload File"
+			],
+			[
+				"sftp u",
+				"SFTP: Upload File"
+			],
+			[
+				"local",
+				"SFTP: Sync Local -> Remote…"
+			],
+			[
+				"sftp c",
+				"SFTP: Cancel Upload"
+			],
+			[
+				"roxy",
+				"R-Box Run Roxygen"
+			],
+			[
+				"devti",
+				"R-Box devtools: install()"
+			],
+			[
+				"devt",
+				"R-Box devtools: install()"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"markd",
+				"Set Syntax: Markdown Extended"
+			],
+			[
+				"mark",
+				"Set Syntax: Markdown Extended"
+			],
+			[
+				"markdown",
+				"Set Syntax: Markdown Extended"
+			],
+			[
+				"r exte",
+				"Set Syntax: R Extended"
+			],
+			[
+				"markdown ext",
+				"Markdown Preview: Export HTML in Sublime Text"
+			],
+			[
+				"r ex",
+				"Set Syntax: R Extended"
+			],
+			[
+				"a",
+				"AlignTab"
+			],
+			[
+				"alg",
+				"AlignTab"
+			],
+			[
+				"align",
+				"AlignTab: Table Mode"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"loada",
+				"R-Box devtools: load_all()"
+			],
+			[
+				"load",
+				"R-Box devtools: load_all()"
+			],
+			[
+				"loadal",
+				"R-Box devtools: load_all()"
+			],
+			[
+				"roy",
+				"Snippet: roxygen"
+			],
+			[
+				"r extend",
+				"Set Syntax: R Extended"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"rbo",
+				"R-Box: Choose Program"
+			],
+			[
+				"r-",
+				"R-Box: Choose Program"
+			],
+			[
+				"r",
+				"R-Box Application"
+			],
+			[
+				"check",
+				"R-Box devtools: check()"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"roxyg",
+				"R-Box Run Roxygen"
+			],
+			[
+				"roxygen",
+				"R-Box Run Roxygen"
+			],
+			[
+				"rox",
+				"R-Box Run Roxygen"
+			],
+			[
+				"ryxo",
+				"Pretty JSON: JSON 2 XML"
+			],
+			[
+				"evti",
+				"R-Box devtools: install()"
+			],
+			[
+				"devty",
+				"Markdown Preview: Copy to Clipboard"
+			],
+			[
+				"deti",
+				"Emmet: Encode\\Decode Image to data:URL"
+			],
+			[
+				"devtri",
+				"Markdown Preview: Export HTML in Sublime Text"
+			],
+			[
+				"checkOpts",
+				"Git (SideBarGit): Checkout repository to…"
+			],
+			[
+				"pretty",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"ro",
+				"R-Box Run Roxygen"
+			],
+			[
+				"devi",
+				"R-Box devtools: install()"
+			],
+			[
+				"rb",
+				"R-Box Application"
+			],
+			[
+				"syntaxr",
+				"Set Syntax: R Extended"
+			],
+			[
+				"r markdown",
+				"Set Syntax: R Markdown"
+			],
+			[
+				"markdown extend",
+				"Set Syntax: Markdown Extended"
+			],
+			[
+				"dev",
+				"R-Box devtools: test()"
+			],
+			[
+				"markdown e",
+				"Set Syntax: Markdown Extended"
+			],
+			[
+				"rxoy",
+				"Snippet: roxygen"
+			],
+			[
+				"de",
+				"R-Box devtools: install()"
+			],
+			[
+				"ryx",
+				"Snippet: roxygen"
+			],
+			[
+				"devin",
+				"R-Box devtools: install()"
+			],
+			[
+				"roxyge",
+				"R-Box Run Roxygen"
+			],
+			[
+				"rogy",
+				"R-Box Run Roxygen"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"projec",
+				"Project: Save As"
+			],
+			[
+				"project",
+				"Project Manager: Edit Project"
+			],
+			[
+				"upd",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"synta",
+				"Set Syntax: R"
+			],
+			[
+				"synt",
+				"Set Syntax: Python"
+			],
+			[
+				"syn",
+				"Set Syntax: R"
+			],
+			[
+				"",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"upda",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"p",
+				"Package Control: List Packages"
+			],
+			[
+				"proje",
+				"Project Manager: Edit Project"
+			],
+			[
+				"packag",
+				"Package Control: Enable Package"
+			]
+		],
+		"width": 714.0
+	},
+	"console":
+	{
+		"height": 204.0,
+		"history":
+		[
+			"view.find_by_selector('source.r')",
+			"view.find_by_selector('text.html.markdown.rmarkdown')",
+			"view.find_by_selector('source.r')",
+			"view.classify(8)",
+			"view.classify(6)",
+			"view.classify(4)",
+			"view().classify(4)",
+			"classify(4)",
+			"view.find_by_selector()",
+			"view.find_by_selector('code')",
+			"view.find_by_selector('R')",
+			"view.find_by_selector('r')",
+			"view.find_by_selector('function')",
+			"view.find_by_selector('function-call')",
+			"view.scope_name(56)",
+			"view.scope_name(50)",
+			"view.scope_name(20)",
+			"view.scope_name(2)",
+			"view.scope_name(1)",
+			"view.scope_name(0)",
+			"view.find_by_selector('comment')",
+			"view.extract_scope(10)",
+			"view.extract_scope()",
+			"view.find_by_selector('comment')",
+			"view.find_by_selector",
+			"view.find_by_selector('comment')",
+			"view()",
+			"active_window",
+			"windows",
+			"windows()",
+			"active_window()",
+			"view.settings().get(\"R_box_app\")",
+			"view.settings()",
+			"sublime.active_window().active_view().settings().get('R_box_app')",
+			"settings.get(\"folders\")",
+			"settings.get()",
+			"settings.list()",
+			"settings.get(\"R_box_app\")",
+			"settings = sublime.load_settings(\"test-project.sublime-settings\")",
+			"settings.get(\"R_box_app\")",
+			"settings = sublime.load_settings(\"<project-filename>.sublime-settings\")",
+			"view.settings().get(\"R_box_appa\") is not None",
+			"view.settings().get(\"R_box_appa\") is None",
+			"view.settings().get(\"R_box_appa\") == \"\"",
+			"view.settings().get(\"R_box_appa\") == null",
+			"view.settings().get(\"R_box_appa\")",
+			"view.settings().get(\"R_box_app\")",
+			"view.settings()",
+			"RBoxSettings()",
+			"ls",
+			"RBoxSettings",
+			"RBoxSettings(\"App\")",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+	],
+	"file_history":
+	[
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/sftp-config.json",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/analysis/allfits_cluster/get_artifacts.R",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/analysis/mother_height/analysis.R",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/analysis/allfits_explore/trelliscope.R",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/scripts/get_joined_fits.R",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/analysis/dmv_paper_figures/analysis_ryan.R",
+		"/Users/hafen/Desktop/test_site/content/post/2015-07-23-r-rmarkdown.Rmd",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/analysis/dmv_paper_figures/analysis.R",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/analysis/allfits_cluster/artifacts/cluster.R",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/scripts/get_fit_artifacts.R",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/analysis/allfits_explore/get_artifacts.R",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/analysis/allfits_explore/explore.R",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/analysis/allfits_cluster/artifacts/reconcile.csv",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/analysis/mother_height/get_artifacts.R",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/analysis/mother_height/README.md",
+		"/Users/hafen/Library/Application Support/Sublime Text 3/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/README.md",
+		"/Users/hafen/Documents/Code/htmlwidgetsgallery/.git/MERGE_MSG",
+		"/Users/hafen/Documents/Code/htmlwidgetsgallery/_config.yml",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/.lintr",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/scripts/trelliscope.R",
+		"/Users/hafen/Documents/Code/HBGDki/hbgd/scripts/labels/kikm_variables.csv",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/scripts/cpp.R",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/scripts/whz.R",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/scripts/mpc.R",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/scripts/knba_holdout.R",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/_ignore/ssh.txt",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/scripts/all_haz.R",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/scripts/co-chair_slides.R",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/scripts/more.R",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/scripts/study_comp.R",
+		"/Users/hafen/Documents/Projects/Gates/GHAP/vis-adhocs/scripts/page_hackathon.R",
+		"/Users/hafen/Documents/Code/deltarho/webpage/CNAME",
+		"/Users/hafen/Documents/Code/deltarho/webpage/index.html",
+		"/Users/hafen/Documents/Projects/Gates/ghapcode/vis-adhocs/sftp-config.json",
+		"/Users/hafen/Documents/Projects/Gates/ghapcode/vis-adhocs/scripts/co-chair_slides.R",
+		"/Users/hafen/Documents/Code/rbokeh/.git/MERGE_MSG",
+		"/Users/hafen/Documents/Projects/Gates/ghapcode/visapps/scripts/summaries_build.R",
+		"/Users/hafen/Documents/Projects/Gates/ghapcode/visapps/templates/study_summary_template.Rmd",
+		"/Users/hafen/Documents/Projects/Gates/ghapcode/visapps/cron/update_reports.sh",
+		"/Users/hafen/Documents/Projects/Gates/ghapcode/visapps/cron/README.md",
+		"/Users/hafen/Documents/Projects/Gates/ghapcode/visapps/scripts/trelliscope.R",
+		"/Users/hafen/Documents/Projects/Gates/ghapcode/visapps/templates/overview_summary_template.Rmd",
+		"/Users/hafen/Documents/Projects/Gates/ghapcode/visapps/appsubmission/shinyghap/R/bundle_app.R",
+		"/Users/hafen/Documents/Projects/Gates/ghapcode/visapps/appsubmission/notes/drat.R",
+		"/Users/hafen/Documents/Projects/Gates/Analysis/visapps/sftp-config.json",
+		"/Users/hafen/Documents/Projects/Gates/Analysis/visapps/templates/overview_summary_header.yaml",
+		"/Users/hafen/Documents/Projects/Gates/Analysis/visapps/appsubmission/notes/checkdimension.R",
+		"/Users/hafen/Documents/Projects/Gates/Analysis/visapps/appsubmission/notes/drat.R",
+		"/Users/hafen/Documents/Projects/Gates/Analysis/visapps/_ignore/shinyghap-test.R",
+		"/Users/hafen/Documents/Projects/Gates/Analysis/visapps/_ignore/overview_summaries_staging.R",
+		"/Users/hafen/Documents/Projects/Gates/Analysis/visapps/templates/study_summary_header.yaml",
+		"/Users/hafen/Documents/Projects/Gates/Analysis/visapps/_ignore/study_summaries_staging.R",
+		"/Users/hafen/Documents/Projects/Gates/Analysis/visapps/templates/overview_header.yaml",
+		"/Users/hafen/Documents/Projects/Gates/Analysis/visapps/appsubmission/shinyghap/DESCRIPTION",
+		"/Users/hafen/Documents/Projects/Gates/Analysis/visapps/appsubmission/shinyghap/R/bundle_app.R",
+		"/Users/hafen/Documents/Projects/Gates/Analysis/visapps/_ignore/drat.R",
+		"/Users/hafen/.bash_profile",
+		"/Users/hafen/hadoop/hadoop-2.4.0/etc/hadoop/hadoop-env.sh",
+		"/Users/hafen/.bashrc",
+		"/Users/hafen/Documents/Projects/Gates/Analysis/visapps/appsubmission/shinyghap/LICENSE",
+		"/Users/hafen/Documents/Projects/Gates/Analysis/visapps/_ignore/interview_notes.txt",
+		"/Users/hafen/Documents/Projects/Gates/Analysis/visapps/_ignore/s3credentials.txt",
+		"/Users/hafen/Documents/Projects/Gates/Analysis/visapps/visapps.sublime-project",
+		"/Users/hafen/Documents/Projects/Gates/Analysis/visapps/appsubmission/notes.txt",
+		"/Users/hafen/Documents/Projects/Gates/Analysis/visapps/upload/notes.txt",
+		"/Users/hafen/Documents/Projects/Gates/Analysis/visapps/upload/drat.R",
+		"/Users/hafen/Documents/Code/Tessera/tesseradata/install-emr/README.md",
+		"/Users/hafen/Documents/Code/Tessera/tesseradata/install-emr/.git/MERGE_MSG",
+		"/Users/hafen/.Rprofile",
+		"/private/tmp/test-app/global.R",
+		"/Users/hafen/Documents/Projects/Gates/Analysis/visapps/scripts/study_summaries_tmp.R",
+		"/Users/hafen/Documents/Projects/Gates/Analysis/visapps/cron/update_reports.sh",
+		"/Users/hafen/Documents/Projects/Gates/Analysis/visapps/scripts/visapps.R",
+		"/Users/hafen/Documents/Projects/Gates/Analysis/sftp-config.json",
+		"/Users/hafen/Documents/Projects/Gates/Packages/hbgd/data/hbgd_labels.R",
+		"/Users/hafen/Library/Application Support/Sublime Text 3/Packages/Alignment/Base File.sublime-settings",
+		"/var/folders/n4/6ztyqms165s3r_4n001n1y6m0000gn/T/sublime-sftp-browse-1440983280/gates.json/torquefs/test/index.html",
+		"/Users/hafen/Documents/Projects/Gates/Packages/hbgd/R/plot_multistudy.R",
+		"/Users/hafen/Documents/Projects/Gates/Packages/hbgd/R/hbgd.R",
+		"/Users/hafen/Documents/Projects/Gates/Packages/hbgd/R/misc.R",
+		"/Users/hafen/Documents/Projects/Gates/Packages/hbgd/R/plot_summary.R",
+		"/Users/hafen/Documents/Projects/Gates/Packages/hbgd/R/who.R",
+		"/Users/hafen/Documents/Projects/Gates/Packages/hbgd/_ignore/get_who_dat.R",
+		"/Users/hafen/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/hafen/Documents/Projects/Gates/Packages/hbgd/_ignore/get_labels.R",
+		"/Users/hafen/Documents/Projects/Gates/Packages/hbgd/DESCRIPTION",
+		"/Users/hafen/Documents/Projects/Gates/Packages/hbgd/R/read.R",
+		"/Users/hafen/Documents/Projects/Gates/Packages/hbgd/hbgd.sublime-project",
+		"/Users/hafen/Library/Application Support/Sublime Text 3/Packages/R-Box/R-Box.sublime-settings",
+		"/Users/hafen/Documents/Projects/Gates/Packages/hbgd/NAMESPACE",
+		"/Users/hafen/Documents/Projects/Gates/Packages/hbgd/_ignore/old/sas.R",
+		"/Users/hafen/Documents/Projects/Gates/Packages/hbgd/scripts/explore.R",
+		"/Users/hafen/Documents/Projects/Gates/Packages/hbgd/.gitignore",
+		"/Users/hafen/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/hafen/Documents/Projects/Gates/Packages/hbgd/LICENSE",
+		"/Users/hafen/Documents/Projects/Gates/Packages/hbgd/.Rbuildignore",
+		"/Users/hafen/Documents/Code/hafen.github.io/rbokeh/rbokeh.sublime-project",
+		"/Users/hafen/Documents/Code/hafen.github.io/rbokeh/rd.Rmd",
+		"/Users/hafen/Documents/Code/hafen.github.io/rbokeh/rd_skeleton.Rmd",
+		"/Users/hafen/Documents/Code/hafen.github.io/rbokeh/rd.html",
+		"/Users/hafen/Documents/Code/hafen.github.io/rbokeh/index.html",
+		"/Users/hafen/Documents/Code/hafen.github.io/rbokeh/assets/jquery.sticky-kit.min.js",
+		"/Users/hafen/Documents/Code/hafen.github.io/rbokeh/assets/bootstrap-3.3.2/css/custom.css",
+		"/Users/hafen/Documents/Code/packagedocs/_ignore/test/test2.html",
+		"/Users/hafen/Documents/Code/packagedocs/inst/html_assets/template.html",
+		"/Users/hafen/Documents/Code/packagedocs/_ignore/test/test.html",
+		"/Users/hafen/Documents/Code/packagedocs/_ignore/test/test_files/bootstrap-3.3.2/css/custom.css",
+		"/Users/hafen/Documents/Code/packagedocs/inst/rd_template/rd_template.Rmd",
+		"/Users/hafen/Documents/Code/packagedocs/_ignore/setup",
+		"/Users/hafen/Documents/Code/packagedocs/_ignore/test/test2_files/bootstrap-3.3.2/css/custom.css",
+		"/Users/hafen/Documents/Code/packagedocs/man/function_ref_template.R",
+		"/Users/hafen/Documents/Code/packagedocs/inst/rd_template/rd_template2.Rmd",
+		"/Users/hafen/Documents/Code/packagedocs/_ignore/test/test2.Rmd",
+		"/Users/hafen/Documents/Code/packagedocs/_ignore/test/test_files/custboot-0.1/css/custom.css",
+		"/Users/hafen/Documents/Code/packagedocs/bower_components/jquery/src/effects.js",
+		"/Users/hafen/Documents/Code/packagedocs/DESCRIPTION",
+		"/Users/hafen/Documents/Code/packagedocs/_ignore/test/test.Rmd",
+		"/Users/hafen/Documents/Code/packagedocs/inst/html_assets/custom.css",
+		"/Users/hafen/Documents/Code/packagedocs/packagedocs.sublime-project",
+		"/Users/hafen/Documents/Code/packagedocs/inst/html_assets",
+		"/Users/hafen/Documents/Code/packagedocs/less/variables.less",
+		"/Users/hafen/Documents/Code/rbokeh/.git/COMMIT_EDITMSG",
+		"/Users/hafen/Documents/Code/packagedocs/_ignore/templates/test/assets/bootstrap/css/bootstrap-flat.css",
+		"/Users/hafen/Documents/Code/packagedocs/less/cosmo.less",
+		"/Users/hafen/Documents/Code/packagedocs/_ignore/templates/test/assets/bootstrap/css/cosmo.less",
+		"/Users/hafen/Documents/Code/packagedocs/css/main.css",
+		"/Users/hafen/Documents/Code/packagedocs/gulpfile.js"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 105.0,
+		"where_history":
+		[
+			"*.R",
+			"",
+			"*.R*",
+			"*.R",
+			"R/*.R",
+			"man-roxygen/*.R",
+			"R/*.R",
+			"layers",
+			"R/*.R",
+			"*.R",
+			".R",
+			"*.R",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"save_and",
+			"ggthemes",
+			"cents",
+			"scale_color_tableau",
+			"tableah",
+			"use_study",
+			"800",
+			"pars[1], ",
+			"ifelse",
+			"trelliscope(",
+			"path",
+			"ggplot",
+			",",
+			"feducyrs",
+			" = ",
+			"educ",
+			"= \"l\"",
+			".x",
+			"y",
+			"rmote",
+			"dat",
+			"mheightdat",
+			"agakhanuniv",
+			"fels",
+			"clustdat",
+			"jj",
+			"]][[]]",
+			"latitude",
+			"irc",
+			"cmc_v_bcs_2002",
+			"tdc",
+			"rcncl",
+			"digest",
+			"\"",
+			"keep ",
+			"floor",
+			"flidx",
+			"tvidx",
+			"birthlen",
+			"cohorts",
+			"[[4]]",
+			"names(allfits)",
+			"resids",
+			"n",
+			"checkpoints",
+			"int",
+			"n\"",
+			"\n",
+			"n_subj",
+			"tbl",
+			"visapps",
+			"heatmap",
+			"rdata",
+			"Rdata",
+			"visapps",
+			"get_visapps",
+			"visapps",
+			"alldat",
+			"group_by_",
+			"max",
+			"mar",
+			"tbl2",
+			"Mal-ed",
+			"\"output\"",
+			"hdat",
+			"haz_dir",
+			"cmc",
+			"common_path",
+			"adhocs_path",
+			"haz/",
+			"global",
+			"_id",
+			"its/",
+			"trelliscopejs",
+			"trajectories",
+			", with subject-level cognostics for interactivity, using the '\", methd, \"' method to fit the trajectories",
+			"vdbconvert",
+			"convert",
+			"modelfits",
+			"datasummary",
+			"specsumm3",
+			"yy",
+			"x$",
+			"specdat3",
+			"bysubja",
+			"country",
+			"dd$",
+			"interp",
+			"dd",
+			"specsumm",
+			"specdat",
+			"specsumm",
+			"specdat",
+			"specsumm",
+			"specdat",
+			"dd",
+			"bysubj[[1]]",
+			"ssh",
+			"ki0047075",
+			"mal-ed",
+			"75",
+			"color = \"darkgray\"",
+			"ylab",
+			"haz",
+			"tableau10",
+			"guide",
+			"a(",
+			"agemos",
+			"stpct",
+			"stat_smooth",
+			"state_smooth",
+			"s3",
+			"data_summary",
+			"bundle",
+			"profile",
+			"packrat",
+			"init",
+			":",
+			"thumbn",
+			"file.path(app_prefix, id)",
+			"deploy_app",
+			"data for id",
+			"data for",
+			"repos",
+			"trscope_json",
+			"hbgd_attr",
+			"handle_thumb(dat",
+			"copyVeri"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"timevarying_vars",
+			"subjectlevel_vars",
+			"sidebar-col",
+			"toc",
+			"left-col",
+			"valid_id",
+			"zero_ind",
+			"desc_ind",
+			"  ",
+			"sd_dir",
+			"opt_templates",
+			"out_loc",
+			"package_loc",
+			"resolve_line_args",
+			"scale_tableau_pal",
+			"scale_line_width",
+			"scale_line_dash",
+			"scale_continuous_pal",
+			"scale_glyph",
+			"scale_size",
+			"#' @template par-lineprops",
+			"ly_lines",
+			"ly_points",
+			"ly_polygons",
+			"ly_lines",
+			"ly_points",
+			"attr",
+			"attribute",
+			"attr",
+			"fig",
+			"modify",
+			"get_grid_ranges",
+			"ifelse(is.null(data), NA, digest(data))",
+			"make_bokeh_widget",
+			"cur_lab",
+			"cur_val",
+			"cur_dat",
+			"validate_opts",
+			"num_ind",
+			"cur_legend",
+			"cur_probs",
+			"full_length",
+			"bad_ind",
+			"cur_glyph",
+			"defer_fn",
+			"df_split",
+			"df_args",
+			"g_args",
+			"group_vars",
+			"anchor_opts",
+			"hex_c",
+			"bk_palettes",
+			"bk_palette_names",
+			"get_hexbin_data",
+			"cur_type",
+			"next_color_idx",
+			"n_layers",
+			"cur_theme",
+			"col_fields",
+			"color_ind",
+			"glyph_obj",
+			"new_data",
+			"has_data",
+			"cur_idx",
+			"tool_event_ref",
+			"g_id",
+			"a_id",
+			"t_id",
+			"f_id",
+			"map_args",
+			"tableau_colors",
+			"css_colors",
+			"is_discrete",
+			"check_arc_direction",
+			"xy_names",
+			"get_hover",
+			"get_lgroup",
+			"resolve_glyph_props",
+			"has_fill",
+			"has_line",
+			"resolve_color_alpha",
+			"get_xy_names",
+			"get_xy_data",
+			"reduce_saturation",
+			"valid_opts",
+			"check_opts",
+			"cur_glyph_props",
+			"hard_range",
+			"range_mat",
+			"spec_in_data",
+			"add_layer",
+			"long_ind",
+			"arg_names",
+			"arg_lengths",
+			"scalar_ind",
+			"data_names",
+			"data_is_list",
+			"data_lengths",
+			"fig_type",
+			"y_range",
+			"x_range",
+			"glyph_text",
+			"get_glyph_range",
+			"get_glyph_axis_type",
+			"assert_y",
+			"assert_x",
+			"get_glyph_axis_type_range",
+			"names_with_prefix",
+			"cur_names",
+			"validate_fig",
+			"get_next_color",
+			"update_line_opts",
+			"not_used",
+			"tool_list",
+			"glyph_defer",
+			"glyph_defer_data",
+			"glyph_defer_specs",
+			"fig_model_skeleton",
+			"tool_name",
+			"tool_events",
+			"tool_model",
+			"get_tool_name",
+			"update_tool",
+			"range_name",
+			"legend_model",
+			"color_mapper_model",
+			"c_id",
+			"glyph_attrs"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "explore.R",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 95,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								93,
+								93
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 96,
+								"count": 0,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"incomplete_sync": null,
+							"open_with_edit": true,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/R-Box/syntax/R Extended.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 148.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.markdown":
+	{
+		"height": 110.0
+	},
+	"output.sftp":
+	{
+		"height": 270.0
+	},
+	"pinned_build_system": "",
+	"project": "radon.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"scripts/study_summaries.R"
+			],
+			[
+				"tab",
+				"_ignore/colors/tableau.R"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 638.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 198.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
