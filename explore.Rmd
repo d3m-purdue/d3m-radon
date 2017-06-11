@@ -1,6 +1,9 @@
 ---
 title: "Radon Data Exploratory Analysis"
-output: html_document
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
 ---
 
 ```{r setup, eval=TRUE, echo=TRUE, message=FALSE}
@@ -91,7 +94,7 @@ Now let's look at the distribution of this variable:
 plot(sort(radon$log_activity))
 ```
 
-This looks better. It may even look normally distributed. Let's check:
+This looks better. It may even be normally distributed. Let's check:
 
 ```{r explore7, eval=TRUE, echo=TRUE}
 qqnorm(radon$log_activity)
@@ -167,3 +170,374 @@ figure(data = radon) %>% ly_bar(room, color = basement, hover = TRUE, position =
 ```{r explore18, eval=TRUE, echo=TRUE}
 figure(data = radon) %>% ly_bar(typebldg, color = room, hover = TRUE, position = "fill")
 ```
+
+## Merging in geo
+
+A companion dataset is provided with county-level soil uranium levels (ppm), labeled `Uppm`, and geographical coordinates for the counties. We want to include this in our dataset so we can use `Uppm` in our modeling.
+
+Note: All of the work that goes into figuring out how to merge these two data frames, including figuring out what variables to join on, making their types commensurate, making sure the data frame to be joined has unique rows per joining variables, etc., is very ad-hoc yet a very important part of getting data ready for analysis. I'm particularly verbose in this section just to point out all the steps it takes, and even with this I'm glossing over some. I don't think we can expect a D3M system to always have perfect data fed in, so it brings up a lot of things to think about in terms of how an interface for a non-technical user could help expose and correct these kind of issues...
+
+Looking at the `radon` data and the `geo` data, it appears that there are two columns to join on, `cntyfips` and `stfips`, state and county fips codes. Note that the county fips is only unique within a state:
+
+```{r}
+radon %>%
+  group_by(cntyfips) %>%
+  summarise(n_states = length(unique(stfips))) %>%
+  arrange(-n_states)
+```
+
+So county fips code 3 exists in 9 states, etc. So we need to use both to join.
+
+Also, note that the `geo` dataset uses `ctfips` instead of `cntyfips`:
+
+```{r}
+head(geo)
+```
+
+Also, in `radon`, `cntyfips` and `stfips` are integers, but they're strings in `geo`, so we need to convert them to integers to be able to join:
+
+```{r}
+geo$ctfips <- as.integer(geo$ctfips)
+geo$stfips <- as.integer(geo$stfips)
+```
+
+Now we can try to join them:
+
+```{r}
+radon_join <- left_join(radon, geo, by = c(cntyfips = "ctfips", stfips = "stfips"))
+radon_join
+```
+
+There's a problem here. The result of the join resulted in more rows than is in our original radon dataset:
+
+```{r}
+nrow(radon)
+nrow(radon_join)
+```
+
+This means that the rows of `geo` are not uniquely defined by `ctfips` and `stfips`. Let's investigate:
+
+```{r}
+geo %>%
+  group_by(ctfips, stfips) %>%
+  summarise(n = n()) %>%
+  arrange(-n)
+```
+
+There quite a few state/county combinations that have more than one record. Let's see what's different within each of these groups. Here, we check to see whether all values are equal within a county/state combination:
+
+```{r}
+tmp <- geo %>%
+  group_by(ctfips, stfips) %>%
+  summarise_all(function(x) all(x == x[1]))
+tmp
+```
+
+Looking at the first few rows, we only see the case of a latitude and longitude with varying values within a group. Let's see if that's consistent
+
+```{r}
+sapply(tmp, all)
+```
+
+This tells us that within each state/county group, all variables except latitude and longitude are constant.
+
+We can investigate to what extent the lat/lon variables vary within a group with the following:
+
+```{r}
+tmp2 <- geo %>%
+  group_by(ctfips, stfips) %>%
+  summarise(
+    dlat = diff(range(lat)),
+    dlon = diff(range(lon))
+  ) %>%
+  filter(dlat > 0 | dlon > 0)
+
+max(tmp2$dlat)
+max(tmp2$dlon)
+```
+
+This translates to a difference of about 100 miles in both latitude and longitude (of course it varies depending on where the longitude is). Since we don't really care about lat/lon and they are close enough within a group, we will simply roll them up into one by averaging:
+
+```{r}
+geo2 <- geo %>%
+  group_by(ctfips, stfips, st, cty, Uppm) %>%
+  summarise(lon = mean(lon), lat = mean(lat))
+```
+
+Now we can try our join again:
+
+```{r}
+radon <- left_join(radon, geo2, by = c(cntyfips = "ctfips", stfips = "stfips"))
+radon
+```
+
+This looks good.
+
+## A Very Simple Model
+
+Let's consider a very simple linear model. We want to model the `log_activity` as a function of any of the covariates present in the data. Ideally, an analyst would make some more exploratory plots investigating individual relationships between `log_activity` and and the covariates. But suppose for the sake of D3M that the analyst either picks a specific model or is sent back a model result from TA2 and wants to evaluate the model result.
+
+In this section we'll cover just a couple of elementary classical diagnostic plots that might be made and diagnostic measures that might be looked at for one linear model result. This is written to hopefully be accessible to someone who is not very familiar with statistics, and since it's being prepared hastily, it almost surely misses that mark.
+
+Here we'll use [Barret's package](https://github.com/d3m-purdue/d3mLm) to simulate what the output received for a model might look like.
+
+```{r eval=FALSE}
+devtools::install_github("d3m-purdue/d3mLm")
+```
+
+```{r}
+library(d3mLm)
+```
+
+Suppose the model specified was simply `log_activity` vs. `Uppm`. In other words, if we let $y_i$ be the $i$th observation of the log radon activity and $x_i$ be the $i$th observation of `Uppm` then our model is defined by:
+
+$$y_i = a + bx_i + \varepsilon$$
+
+Where $a$ and $b$ are the intercept and slope estimates, and $\varepsilon_i$ is a random error term, and the $\varepsilon_i$ are assumed to be independent and identically distributed (iid) following the normal distribution with a mean of 0 and variance of $\sigma^2$.
+
+We obtain the model fit with the following:
+
+```{r}
+rdlm <- lm(log_activity ~ Uppm, data = radon, na.action = na.exclude)
+```
+
+(Note: if we don't use `na.exclude` we won't get residuals back with the same length as our input data as there are missing `Uppm` values...)
+
+Using Barret's package, we can get a mock-up of a TA2-type response for fitting such a model.
+
+```{r}
+result <- extract_lm(rdlm)
+```
+
+We can make this look like a TA2 response by calling `result$as_json()`, but since this returns some pretty long vectors of diagnostic data, we'll just access the object directly from R. From the R syntax, you should be able to deduce how the results would be obtained from the JSON output.
+
+### Interpreting the model
+
+The model that we fit, $y_i = a + b x_i + \varepsilon_i$ has a slope parameter $a$ and an intercept parameter $b$. Our model estimated $a$ and $b$, producing coefficients $\hat{a}$ and $\hat{b}. Our fitted log radon activity values are:
+
+$$\hat{y}_i = $\hat{a}$ + \hat{b}x$$
+
+To interpret the model result, we can examine the coefficient estimates:
+
+```{r}
+result$diag_coefs
+```
+
+The `p.value` field tells us whether these parameters are statistically significant. Here, statistically significant means that a coefficient is likely to be a meaningful addition to the model because changes in the the associated covariate's value are related to changes in the response. A coefficient is generally considered to be statistically significant if the p-value is less than 0.05. Here, both the slope and intercept parameters of the model are very significant. The intercept coefficient estimate, $\hat{a}$ tells us that we can expect a log radon activity of about 1.5 when the uranium level is 0. Also, for every unit increase in uranium level, we expect the log radon activity to change by -0.17 (the coefficient estimate $\hat{b}$ for our covariate `Uppm`). This relationship will be more clear in the fitted model diagnostic plot.
+
+### Diagnostic metrics
+
+First, let's look at some of the model diagnostic metrics:
+
+```{r}
+result$diag_model
+```
+
+The first metric, `r.squared`, tells us the proportion of the variance in our response variable `log_activity` that is explianed or predictable by our covariate, `Uppm`. A very good model will have a value much closer to 1. This is a very weak $R^2$ value indicating a poor fit. Other metrics like AIC and BIC are used when comparing models with each other.
+
+It will be interesting to think about the kind of classical model-specific ways of determining the appropriateness of models described here vs. more general approaches like cross-validation.
+
+### Diagnostic plots
+
+One of the most basic diagnostic plots we can make is of the raw data with the fitted model superposed. This is very simple to do with one covariate and a simple linear model, but it of course gets a lot more complicated as the model gets more complex and more covariates are added.
+
+#### Fitted model on raw data
+
+Here we plot the raw data and use `result$diag_coefs` to superpose the fitted line:
+
+```{r}
+coefs <- result$diag_coefs$estimate
+ggplot(radon, aes(Uppm, log_activity)) +
+  geom_point(alpha = 0.25) +
+  geom_abline(intercept = coefs[1], slope = coefs[2],
+    color = "steelblue", size = 2)
+```
+
+From this plot we see that the fitted line intersects at 1.5 when `Uppm = 0` and has a negative slope as we expect from looking at the coefficients. From looking at the plot, there is a large cloud of points and the points vary quite a bit around the line, showing us visually why this one variable, `Uppm`, does not explain much of what is happening with the radon activity.
+
+Here's what a plot might look like for (synthetic) data with the roughly the same model coefficients but a much better fit:
+
+```{r}
+x <- runif(1000, 0, 4)
+d <- data.frame(Uppm = x,
+  log_activity = rnorm(1000, mean = coefs[1] + coefs[2] * x, sd = 0.2))
+ggplot(d, aes(Uppm, log_activity)) +
+  geom_point(alpha = 0.25) +
+  geom_abline(
+    intercept = result$diag_coefs$estimate[1],
+    slope = result$diag_coefs$estimate[2],
+    color = "steelblue", size = 2) +
+  xlim(range(radon$Uppm)) +
+  ylim(range(radon$log_activity))
+```
+
+When more covariates are used, the fitted model diagnostic plots get more complex.
+
+### Residuals plots
+
+As we saw in the fitted model plot, our model does not capture everything that explains the radon activity. Our model has *error*, denoted by our error term $\varepsilon$. Recall that a linear model assumes that its error terms are iid normally distributed with a mean of 0 and variance $\sigma_2$. While we do not observe the error directly, we can estimate the error by calculating *residuals*, which are the fitted values, $\hat{y}$ subtracted from the observed values:
+
+$$e_i = y_i - \hat{y}_i$$
+
+There are a lot of interesting plots that can be made with the residuals. Barret's package returns the residuals with `result$diag_data$.resid`. We can try to join this back up with our original dataset for plotting:
+
+```{r error=TRUE}
+radon$resid <- result$diag_data$.resid
+```
+
+Note that since there are 4 missing values of `Uppm` in our data, and the residuals that are returned have omitted these missing values, we cannot join them... This is minor and we'll work around this for now but it's something to be aware of - we want to make sure any model diagnostic data returned from TA2 is able to be joined back up with our original data.
+
+```{r}
+radon2 <- filter(radon, !is.na(Uppm))
+radon2$resid <- result$diag_data$.resid
+```
+
+First, let's plot the residuals vs. our predictor variable, `Uppm`:
+
+```{r}
+ggplot(radon2, aes(Uppm, resid)) +
+  geom_point(alpha = 0.25) +
+  geom_smooth(method = "loess", se = FALSE)
+```
+
+The residuals in this plot should be randomly varying around zero. In the plot we also added a smoother to the scatterplot to show how the mean of the residuals is varying with respect to `Uppm`. If we have a good fit, we expect this smoother to stay at zero across all values of `Uppm`.
+
+```{r}
+d$resid <- d$log_activity - coefs[1] - coefs[2] * d$Uppm
+ggplot(d, aes(Uppm, resid)) +
+  geom_point(alpha = 0.25) +
+  geom_smooth(method = "loess", se = FALSE)
+```
+
+... more plots ...
+
+### Summary
+
+We have seen that this simple model does not do very well at explaining the log radon activity. Just because it doesn't perform well doesn't necessarily mean there are other models that do, but it is worth looking into other covariates or combinations of covariates that might improve things.
+
+## A more complex model
+
+Include county (create a new unique county factor variable by combining the state and county codes) and `floor` (this variable will need to be cleaned up as well) in the model.
+
+## A multilevel model
+
+Use the same variables as the previous model but fit a multilevel model, more along the lines of what Gelman does.
+
+## Exploratory Plots of Response vs. Covariates
+
+We don't know much about the variables in this data and how they relate to the response variable, so it is useful to make some exploratory visualizations investigating this. Ideally a domain expert would be very familiar with what each variable measures and what it means, but we don't have that luxury with this data and it is actually very difficult to deduce what some of them mean and searching on the internet has not been very fruitful.
+
+Here is a function that will create a boxplot of the log radon activity for each level of a categorical covariate:
+
+```{r}
+## exploratory plots of response vs each categorical variable...
+fct_boxplot <- function(dat, x_name, y_name) {
+  radon[[x_name]] <- factor(radon[[x_name]])
+  radon[[x_name]] <- forcats::fct_reorder(radon[[x_name]], radon[[y_name]])
+  ggplot(radon, aes_string(x_name, y_name)) +
+    geom_boxplot() +
+    coord_flip()
+}
+```
+
+Let's use this to look at log radon activity for some of our categorical covariates.
+
+### state
+
+```{r}
+fct_boxplot(radon, "state", "log_activity")
+```
+
+Radon levels definitely vary by state so it could be a useful covariate.
+
+From some internet searching, it looks like the state of `R5` corresponds to observations on indian reservations in different states. The source for this says that these should be omitted from an analysis.
+
+### state2
+
+```{r}
+fct_boxplot(radon, "state2", "log_activity")
+```
+
+We see some new states. How is this different from `state`?
+
+```{r}
+idx <- which(as.character(radon$state2) != as.character(radon$state))
+table(paste(radon$state[idx], radon$state2[idx] , sep = "->"))
+```
+
+It looks like `state2` is `state` broken into MI, MN, and WI.
+
+### stfips
+
+```{r}
+xtabs(~ state2 + stfips, data = radon)
+```
+
+This looks equivalent to state so we can ignore it.
+
+### zip
+
+```{r}
+length(unique(radon$zip))
+```
+
+There are too many zips to be a dummy regression variable.
+
+### region
+
+```{r}
+fct_boxplot(radon, "region", "log_activity")
+```
+
+This variable doesn't look that significant unless it has interactions with other variables...
+
+### typebldg
+
+```{r}
+fct_boxplot(radon, "typebldg", "log_activity")
+```
+
+Might not be significant...
+
+### floor
+
+```{r}
+fct_boxplot(radon, "floor", "log_activity")
+```
+
+### room
+
+```{r}
+fct_boxplot(radon, "room", "log_activity")
+```
+
+### basement
+
+```{r}
+fct_boxplot(radon, "basement", "log_activity")
+```
+
+### windoor
+
+```{r}
+table(radon$windoor, useNA = "always")
+```
+
+All missing - can ignore.
+
+### rep
+
+```{r}
+table(radon$rep, useNA = "always")
+```
+
+This varible seems to represent the idea of repeated measures or something. It isn't used in Gelman's analysis so I don't know if it is important.
+
+### Other variables
+
+Here are the rest of the variables:
+
+`stratum`, `wave`, `starttm`, `stoptm`, `startdt`, `stopdt`, `activity`, `pcterr`, `adjwt`, `dupflag`, `zipflag`, `cntyfips`, `county`, `uid`, `st`, `cty`, `Uppm`, `lon`, `lat`
+
+Some of these names suggest clues as to what the variables are, but it is difficult to know what they mean and how they might be used in a model without knowing something more about the data...
+
